@@ -6,14 +6,11 @@ jobs:
       - image: cimg/php:8.2.12
     steps:
       - checkout
-      - setup_remote_docker:
-          version: 20.10.14
-          docker_layer_caching: false
+      - setup_remote_docker
       - run:
           name: "Build and push Docker image"
           command: |
-            # Construir la imagen Docker pasando la variable SECURE_KEY
-            docker build --build-arg SECURE_KEY=${SECURE_KEY} -t aocaer4paians.azurecr.io/carpbackend:latest .
+            docker build -t jkzilla.azurecr.io/jkzilla:latest .
 
 workflows:
   workflow1:
