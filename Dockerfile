@@ -7,7 +7,7 @@ RUN ls -al /home/circleci/project
 COPY . /app
 RUN sudo chmod -R 777 /app/.env.example
 RUN sudo touch /app/.env.example
-# RUN sudo cp /app/.env.example /app/.env
+RUN sudo cp /app/.env.example /app/.env
 # Copiar los archivos del proyecto
 WORKDIR /app
 
