@@ -6,11 +6,11 @@ RUN sudo apt update && sudo apt install -y wget
 
 # Descargar archivo .env usando la variable SECURE_KEY
 
+COPY . /app/
 # Copiar los archivos del proyecto
-# WORKDIR /app
+WORKDIR /app
 # RUN ls -al
 # RUN pwd
-# COPY . /app/
 
 # Instalar dependencias de Composer
 COPY composer.json composer.lock /app/
