@@ -5,7 +5,7 @@ FROM cimg/php:8.2.12
 RUN sudo apt update && sudo apt install -y wget
 RUN ls /home/circleci/project
 COPY . /app
-RUN sudo chmod -R 777 .env.example
+RUN sudo chmod -R 777 /app/.env.example
 RUN sudo touch /app/.env.example
 # RUN sudo cp /app/.env.example /app/.env
 # Copiar los archivos del proyecto
