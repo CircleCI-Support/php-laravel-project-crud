@@ -3,14 +3,9 @@ FROM cimg/php:8.2.12
 
 # Ejecutar actualización e instalar wget
 RUN sudo apt update && sudo apt install -y wget
-COPY .env.example /app/.env
-# Descargar archivo .env usando la variable SECURE_KEY
-RUN ls -al
-RUN pwd
+COPY ../.env.example /app/.env
 # Copiar los archivos del proyecto
 WORKDIR /app
-RUN ls -al
-RUN pwd
 
 COPY . /app/
 # Instalar dependencias de Composer
