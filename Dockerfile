@@ -5,7 +5,7 @@ FROM cimg/php:8.2.12
 RUN sudo apt update && sudo apt install -y wget
 
 COPY . /app/
-RUN chmod -R 777 ~/project/app/.env.example
+RUN chmod -R 777 /app/.env.example
 RUN chmod -R 777 ~/project/app
 RUN touch ~/project/.env.example
 RUN cp ~/project/.env.example /app/.env
