@@ -18,6 +18,7 @@ COPY composer.json composer.lock /app/
 RUN sudo mkdir -p vendor
 
 RUN sudo chmod -R 777 ./bootstrap/cache ./storage
+RUN cp .env.example .env
 RUN sudo composer install -n --prefer-dist
 
 # Ejecutar comandos de Laravel para configuración
