@@ -22,6 +22,7 @@ RUN sudo composer install -n --prefer-dist
 
 # Ejecutar comandos de Laravel para configuración
 
+RUN sudo cp .env app/.env
 RUN sudo php artisan key:generate
 RUN sudo php artisan cache:clear
 RUN sudo php artisan config:clear
