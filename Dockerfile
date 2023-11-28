@@ -17,7 +17,7 @@ COPY . /app/
 COPY composer.json composer.lock /app/
 # set workdir
 RUN sudo mkdir -p vendor
-
+RUN composer update
 # RUN sudo chmod -R 777 ./bootstrap/cache ./storage
 # RUN 
 RUN sudo composer install -n --prefer-dist
