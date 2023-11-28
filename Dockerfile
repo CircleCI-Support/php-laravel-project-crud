@@ -5,7 +5,7 @@ COPY . /app
 RUN sudo cp /app/.env.example /app/.env
 WORKDIR /app
 
-COPY . /app/
+# COPY . /app/
 COPY composer.json composer.lock /app/
 RUN sudo mkdir -p vendor
 RUN sudo composer update
