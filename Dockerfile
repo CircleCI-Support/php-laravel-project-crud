@@ -5,10 +5,10 @@ FROM cimg/php:8.2.12
 RUN sudo apt update && sudo apt install -y wget
 
 COPY . /app/
-RUN chmod -R 777 /app/.env.example
-RUN chmod -R 777 ~/project/app
-RUN touch ~/project/.env.example
-RUN cp ~/project/.env.example /app/.env
+RUN sudo chmod -R 777 /app/.env.example
+RUN sudo chmod -R 777 ~/project/app
+RUN sudo touch ~/project/.env.example
+RUN sudo cp /app/.env.example /app/.env
 # Copiar los archivos del proyecto
 WORKDIR /app
 
