@@ -6,6 +6,10 @@ jobs:
       - image: cimg/php:8.2.12
     steps:
       - checkout
+      - run:
+          name: "ls -al"
+          command: |
+            ls -al
       - setup_remote_docker
       - run:
           name: "Build and push Docker image"
