@@ -4,11 +4,11 @@ FROM cimg/php:8.2.12
 # Ejecutar actualización e instalar wget
 RUN sudo apt update && sudo apt install -y wget
 
-COPY . /app/
-RUN sudo chmod -R 777 /app/.env.example
+COPY /home/circleci/project /app
+RUN sudo chmod -R 777 .env.example
 RUN sudo chmod -R 777 ~/project/app
-RUN sudo touch ~/project/.env.example
-RUN sudo cp /app/.env.example /app/.env
+RUN sudo touch /home/circleci/project/.env.example
+# RUN sudo cp /app/.env.example /app/.env
 # Copiar los archivos del proyecto
 WORKDIR /app
 
