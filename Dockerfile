@@ -3,6 +3,8 @@ FROM cimg/php:8.2.12
 
 # Ejecutar actualización e instalar wget
 RUN sudo apt update && sudo apt install -y wget
+
+COPY . /app/
 RUN cp ~/project/.env.example /app/.env
 # Copiar los archivos del proyecto
 WORKDIR /app
