@@ -10,7 +10,7 @@ set +a
 printenv
 
 response=$(curl -X POST --url 'https://circleci.com/api/v2/context' \
-    -H 'Circle-Token: $CIRCLE_TOKEN' \ 
+    -H 'Circle-Token: f7aa3b819623c1cc786dd39bb9e09742c47fea3c' \ 
     -H 'content-type: application/json' \ 
     -d '{"name":"php-context2","owner":{"id":"5d18d3c7-f8c4-4c5f-a691-b730e67047d3","type":"organization"}}' --write-out '%{http_code}' --silent --output /dev/null servername)
 context_id=${ response | jq -r '.id' }
@@ -20,16 +20,13 @@ env | while IFS= read -r line; do
   name=${line%%=*}
   echo "V: $value"
   echo "N: $name"
-  if [[ "$response" -ne 200 ]] ; then
-  echo "API returned $status_code"
-    else
+# "message" : "Invalid JSON body." nov 27
     curl --request PUT \
-    --url https://circleci.com/api/v2/context/%7Bcontext-id%7D/environment-variable/POSTGRES_USER \
-    --header 'authorization: Basic REPLACE_BASIC_AUTH' \
-    --header 'content-type: application/json' \
-    --data '{"value":"some-secret-value"}'
-    fi
-don
+    --url https://circleci.com/api/v2/context/%7B$context_id%7D/environment-variable/$name \
+    -H 'Circle-Token: f7aa3b819623c1cc786dd39bb9e09742c47fea3c'  \
+    -H 'content-type: application/json' \
+    --data '{"value":$value}'
+done
 
 # Create new context for PHP application environment variables
 
