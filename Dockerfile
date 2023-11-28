@@ -17,7 +17,7 @@ COPY composer.json composer.lock /app/
 # set workdir
 RUN sudo mkdir -p vendor
 
-RUN sudo chmod -R 777 bootstrap/cache storage
+RUN sudo chmod -R 777 /bootstrap/cache /storage
 RUN sudo composer install -n --prefer-dist
 
 # Ejecutar comandos de Laravel para configuración
